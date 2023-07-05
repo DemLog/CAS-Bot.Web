@@ -6,7 +6,9 @@ export const BottomTabBarStyles = createStyles((theme) => ({
         backgroundColor: "#ececec",
         borderTopLeftRadius: '13px',
         borderTopRightRadius: '13px',
-        boxShadow: '0px -3px 10px -4px rgba(0,0,0,0.7)'
+        boxShadow: '0px -3px 10px -4px rgba(0,0,0,0.7)',
+        position: 'fixed',
+        bottom: "0px"
     },
     tab: {
         width: 'calc((100% - 50px)/4)'

@@ -5,6 +5,6 @@ export const LoginStyles = createStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        height: 'calc(100% - 50px)'
+        height: 'calc(100vh - 50px)'
     }
 }));

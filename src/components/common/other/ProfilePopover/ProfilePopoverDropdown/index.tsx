@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React from "react";
 import {Box, Divider, NavLink, Text} from "@mantine/core";
 import {ProfilePopoverDropdownStyles} from "@components/common/other/ProfilePopover/ProfilePopoverDropdown/styles";
 import {observer} from "mobx-react";

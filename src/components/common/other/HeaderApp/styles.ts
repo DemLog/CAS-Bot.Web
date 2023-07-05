@@ -8,7 +8,8 @@ export const HeaderAppStyles = createStyles((theme) => ({
         borderBottom: 'none',
         backgroundColor: '#3C9CF4',
         borderBottomLeftRadius: '10px',
-        borderBottomRightRadius: '10px'
+        borderBottomRightRadius: '10px',
+        position: 'sticky'
     },
     inner: {
         display: 'flex',

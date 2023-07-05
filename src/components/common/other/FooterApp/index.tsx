@@ -10,7 +10,7 @@ export const FooterApp: React.FC = () => {
     const matches = useMediaQuery('(min-width: 625px)');
 
     return (
-        <Box className={`${classes.footerContent} ${matches ? classes.footerContentDesktop : classes.footerContentMobile}`} mb={25}>
+        <Box className={`${classes.footerContent} ${matches ? classes.footerContentDesktop : classes.footerContentMobile}`} my={25}>
             {matches && <Text>Создано командой ElevenSquad</Text>}
             <FooterAppLinks />
         </Box>

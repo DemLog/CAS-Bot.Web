@@ -35,14 +35,16 @@ export const MainLayout = observer(() => {
                 right={matches ? <ProfilePopover /> : null}
             />
             <Box className={classes.mainWindow}>
-                <Container size="xl" className={classes.mainWindow} mt={matches ? 50 : 20}>
+                <Container size="xl" className={classes.mainWindow} mt={matches ? 50 : 20} mb={matches ? 0 : "80px"}>
                     <Box className={`${classes.mainContent} ${matches ? '' : classes.mainContentMobile}`}>
                         {matches && <MainMenuNavigation/>}
                         <Box className={`${classes.pageContent} ${matches ? '' : classes.pageContentMobile}`} ml={matches ? 30 : 0}>
                             {matches && <Box p={10}>
                                 <Title order={3} fw={400}>{namePage}</Title>
                             </Box>}
-                            <Outlet />
+                            <Box className={classes.outlet}>
+                                <Outlet />
+                            </Box>
                         </Box>
                     </Box>
                     {matches && <FooterApp/>}

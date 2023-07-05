@@ -31,6 +31,6 @@ export const ProfilePopoverDropdownStyles = createStyles((theme) => ({
         opacity: '1 !important'
     },
     balanceText: {
-        textShadow: '1px 1px 1px #000;'
+        textShadow: '1px 1px 1px #000'
     }
 }));

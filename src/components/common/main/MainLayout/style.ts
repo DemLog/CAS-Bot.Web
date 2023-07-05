@@ -6,7 +6,7 @@ export const MainLayoutStyles = createStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        height: 'calc(100% - 50px - 2px)'
+        height: 'calc(100vh - 50px - 2px)'
     },
     mainContent: {
         width: '100%',
@@ -17,11 +17,13 @@ export const MainLayoutStyles = createStyles((theme) => ({
     },
     pageContent: {
         width: '100%',
-        height: "auto",
         backgroundColor: "#e1e1e14f",
         boxShadow: "0px 0px 10px -3px rgba(0,0,0,0.3)"
     },
     pageContentMobile: {
         height: "100%"
+    },
+    outlet: {
+        overflowY: 'auto'
     }
 }));
