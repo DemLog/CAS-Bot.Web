@@ -8,6 +8,9 @@ export const MainLayoutStyles = createStyles((theme) => ({
         justifyContent: 'space-between',
         height: 'calc(100vh - 50px - 2px)'
     },
+    mainWindowMobile: {
+        height: 'calc(100% - 50px - 2px)'
+    },
     mainContent: {
         width: '100%',
         display: 'flex'

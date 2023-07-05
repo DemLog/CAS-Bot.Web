@@ -34,8 +34,8 @@ export const MainLayout = observer(() => {
                 center={matches ? null : <Title order={2} fw={400} ta="center">{namePage}</Title>}
                 right={matches ? <ProfilePopover /> : null}
             />
-            <Box className={classes.mainWindow}>
-                <Container size="xl" className={classes.mainWindow} mt={matches ? 50 : 20} mb={matches ? 0 : "80px"}>
+            <Box className={`${classes.mainWindow} ${matches ? '' : classes.mainWindowMobile}`}>
+                <Container size="xl" className={`${classes.mainWindow} ${matches ? '' : classes.mainWindowMobile}`} mt={matches ? 50 : 20} mb={matches ? 0 : "80px"}>
                     <Box className={`${classes.mainContent} ${matches ? '' : classes.mainContentMobile}`}>
                         {matches && <MainMenuNavigation/>}
                         <Box className={`${classes.pageContent} ${matches ? '' : classes.pageContentMobile}`} ml={matches ? 30 : 0}>
