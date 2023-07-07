@@ -1,14 +1,15 @@
 import React from "react";
 
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {RouterProvider, createBrowserRouter, Navigate} from "react-router-dom";
 import { LoginPage } from "@components/pages/Login";
-import { AnalysisPage } from "components/pages/Analysis";
 import {MainLayout} from "@components/common/main/MainLayout";
 import {BookmarksPage} from "@components/pages/Bookmarks";
 import {HistoryPage} from "@components/pages/History";
 import {AdminPage} from "@components/pages/Admin";
 import {ManagerPage} from "@components/pages/Manager";
 import {ProfilePage} from "@components/pages/Profile";
+import {DetailProductPage, SearchProductPage} from "@components/pages/Analysis";
+import {ReportProductPage} from "@components/pages/Analysis/ReportProduct";
 
 const router = createBrowserRouter([
     {
@@ -16,9 +17,20 @@ const router = createBrowserRouter([
         element: <MainLayout />,
         children: [
             {
+                path: '/',
+                element: <Navigate to="/analysis" replace={true} />,
+            },
+            {
               path: "analysis",
-              element: <AnalysisPage />,
-
+              element: <SearchProductPage />,
+            },
+            {
+                path: "analysis/detail",
+                element: <DetailProductPage />,
+            },
+            {
+                path: "analysis/report",
+                element: <ReportProductPage />,
             },
             {
                 path: "bookmarks",

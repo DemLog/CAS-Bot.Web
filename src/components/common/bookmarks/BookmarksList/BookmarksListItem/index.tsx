@@ -4,10 +4,13 @@ import {BookmarksListItemStyles} from "@components/common/bookmarks/BookmarksLis
 import {BookmarksListItemProps} from "@components/common/bookmarks/BookmarksList/BookmarksListItem/props";
 import {useDisclosure, useMediaQuery} from "@mantine/hooks";
 import {DeleteModal} from "@components/common/other/MyModals/DeleteModal";
+import {useNavigate} from "react-router-dom";
 
 export const BookmarksListItem: React.FC<BookmarksListItemProps> = (props: BookmarksListItemProps) => {
     const {classes} = BookmarksListItemStyles();
     const matches = useMediaQuery('(min-width: 780px)');
+
+    const navigate = useNavigate();
 
     const [openedModal, {open, close}] = useDisclosure(false);
 
@@ -16,7 +19,7 @@ export const BookmarksListItem: React.FC<BookmarksListItemProps> = (props: Bookm
     };
 
     const handleOpenButton = () => {
-
+        navigate(`/analysis/report?id=${props.id}`);
     };
 
     const displayButtons = () => (
@@ -30,10 +33,10 @@ export const BookmarksListItem: React.FC<BookmarksListItemProps> = (props: Bookm
         return matches ?
             <Box className={`${classes.infoBlockItem} ${!matches && classes.infoBlockItemMobile} ${classes.infoBlockItemPhoto}`}>
                 <Text fz="sm">Фото продукта</Text>
-                <Box className={classes.photoBackground}><Image height={50} width={50} src={props.photoUrl} withPlaceholder/></Box>
+                <Box className={classes.photoBackground} h={50} w={50}><Image height={50} width={50} src={props.photoUrl} withPlaceholder/></Box>
             </Box>
             :
-            <Box className={classes.photoBackground} mr="sm"><Image height={80} width={80} src={props.photoUrl} withPlaceholder/></Box>;
+            <Box className={classes.photoBackground} mr="sm" h={80} w={80}><Image height={80} width={80} src={props.photoUrl} withPlaceholder/></Box>;
     };
 
     const displayProductInfo = () => {

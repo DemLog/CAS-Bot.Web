@@ -10,6 +10,7 @@ import {useStores} from "@core/hooks";
 import {useMediaQuery} from "@mantine/hooks";
 import {BottomTabBar} from "@components/common/other/BottomTabBar";
 import {ProfilePopover} from "@components/common/other/ProfilePopover";
+import {dataPageList} from "@core/config/pageList";
 
 export const MainLayout = observer(() => {
     const { classes } = MainLayoutStyles();
@@ -19,13 +20,13 @@ export const MainLayout = observer(() => {
     const location = useLocation();
 
     useEffect(() => {
-        const currentPath = location.pathname.slice(1);
+        const currentPath = location.pathname.split("/")[1];
         const indexLink = mainMenuStore.getLinksMenu().findIndex((item) => item.url === currentPath);
 
         mainMenuStore.setActive(indexLink);
     }, [location.pathname, mainMenuStore]);
 
-    const namePage = mainMenuStore.getLinksMenu()[mainMenuStore.getActive()].label;
+    const namePage = dataPageList.find(value => value.url === location.pathname.slice(1))?.label;
 
     return (
         <Fragment>
