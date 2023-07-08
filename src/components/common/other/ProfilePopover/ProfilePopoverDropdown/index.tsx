@@ -16,7 +16,7 @@ export const ProfilePopoverDropdown: React.FC<ProfilePopoverDropdownProps> = obs
         <Box className={classes.mainContent} onClick={() => props.onClose()}>
             <NavLink className={`${classes.navLinkButton} ${classes.navLinkButtonDefault}`} py={5}
                      label={<Text fz="lg" fw={500} ta="center">Личный кабинет</Text>}
-                     onClick={() => mainMenuStore.handleClickLink(5, () => navigate(`/${mainMenuStore.getLinkFromIndex(5)?.url}`))}
+                     onClick={() => mainMenuStore.handleClickLink(4, () => navigate(`/${mainMenuStore.getLinkFromIndex(4)?.url}`))}
             />
             <Divider/>
             <NavLink className={`${classes.navLinkButton} ${classes.navLinkButtonDisable}`} py={5}

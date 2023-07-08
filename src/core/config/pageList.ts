@@ -12,12 +12,8 @@ export const dataPageList = [
         url: 'history',
     },
     {
-        label: 'Панель администратора',
+        label: 'Администрирование',
         url: 'admin',
-    },
-    {
-        label: 'Панель менеджера',
-        url: 'manager',
     },
     {
         label: 'Личный кабинет',

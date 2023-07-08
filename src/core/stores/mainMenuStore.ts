@@ -28,13 +28,8 @@ export const dataMenuLinks: IMenuLink[] = [
         icon: faClockRotateLeft
     },
     {
-        label: 'Панель администратора',
+        label: 'Администрирование',
         url: 'admin',
-        icon: faPeopleRoof
-    },
-    {
-        label: 'Панель менеджера',
-        url: 'manager',
         icon: faPeopleRoof
     },
     {

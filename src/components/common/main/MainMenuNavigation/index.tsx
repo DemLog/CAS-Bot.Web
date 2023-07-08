@@ -17,7 +17,7 @@ export const MainMenuNavigation = observer(() => {
                 <Title order={4} fw={400} fs="italic">Меню сервиса</Title>
             </Navbar.Section>
             <Navbar.Section>
-                {mainMenuStore.getLinksMenu().slice(0, 3).map((item, index) => (
+                {mainMenuStore.getLinksMenu().slice(0, 4).map((item, index) => (
                     <NavLink
                         className={classes.navLink}
                         key={item.label}

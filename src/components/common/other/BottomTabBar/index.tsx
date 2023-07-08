@@ -14,7 +14,7 @@ export const BottomTabBar: React.FC = observer(() => {
     const navigate = useNavigate();
 
     const displayTabs = () => {
-        const defaultTabs = mainMenuStore.getLinksMenu().slice(0, 3).map((item, index) => (
+        const defaultTabs = mainMenuStore.getLinksMenu().slice(0, 4).map((item, index) => (
             <Fragment key={index}>
                 <Tabs.Tab
                     className={classes.tab}
@@ -28,7 +28,7 @@ export const BottomTabBar: React.FC = observer(() => {
         const profileTab = (
             <Tabs.Tab
                 className={classes.tab}
-                value="5"
+                value="4"
                 icon={<Avatar color="dark" radius="xl" size="28px">DL</Avatar>}
             />
         );
