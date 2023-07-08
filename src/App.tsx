@@ -1,10 +1,11 @@
 import React from 'react';
+import {RoutesMain} from "@components/routes/main";
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+
+    return (
+        <RoutesMain/>
+    );
 }
 
 export default App;
