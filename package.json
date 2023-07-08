@@ -5,6 +5,11 @@
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@emotion/react": "^11.11.1",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mantine/core": "^6.0.15",
     "@mantine/dates": "^6.0.15",
     "@mantine/form": "^6.0.15",
@@ -23,16 +28,22 @@
     "@types/node": "^16.18.37",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "classnames": "^2.3.2",
     "dayjs": "^1.11.8",
+    "mobx-react": "^7.6.0",
+    "plotly.js": "^2.24.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-plotly.js": "^2.6.0",
     "react-router-dom": "^6.14.0",
     "react-scripts": "5.0.1",
+    "react-telegram-auth": "^1.0.4",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.19"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "set PORT=80 && craco start",
     "build": "craco build"
   },
   "eslintConfig": {
@@ -54,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-plotly.js": "^2.6.0",
     "craco-alias": "^3.0.1"
   }
 }
