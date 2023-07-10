@@ -38,7 +38,7 @@ export const ResultSearchItem: React.FC<ResultSearchItemProps> = (props: ResultS
             </Box>
             <Box className={`${classes.infoBlockItem} ${!matches && classes.infoBlockItemMobile}`}>
                 <Text fz="sm" pt={matches ? 0 : 5}>Категория{!matches && ":"}</Text>
-                <Text pt={3} pl={matches ? 0 : 5}>{props.category}</Text>
+                <Text pt={3} pl={matches ? 0 : 5}>{props.categories[0]}</Text>
             </Box>
             <Box mt={matches ? 0 : 3} className={`${classes.infoBlockItem} ${!matches && classes.infoBlockItemMobile}`}>
                 <Text fz="sm">{matches ? "Ссылка на продукт" : "Ссылка:"}</Text>
@@ -59,7 +59,7 @@ export const ResultSearchItem: React.FC<ResultSearchItemProps> = (props: ResultS
                 {displayProductInfo()}
             </Box>
             <Group className={classes.buttonsBlock} spacing="xs" pl="sm" mt={matches ? 0 : "xl"}>
-                <Button onClick={handleOpenButton} color="gray">Выбрать</Button>
+                <Button disabled={props.disabled} onClick={handleOpenButton} color="gray">Выбрать</Button>
             </Group>
         </Box>
     );

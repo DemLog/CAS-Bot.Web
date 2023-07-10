@@ -9,6 +9,11 @@ import {AdminPage} from "@components/pages/Admin";
 import {ProfilePage} from "@components/pages/Profile";
 import {DetailProductPage, SearchProductPage} from "@components/pages/Analysis";
 import {ReportProductPage} from "@components/pages/Analysis/ReportProduct";
+import {MainLayoutWebApp} from "@components/common/main/MainLayoutWebApp";
+import {TReportProductPage} from "@components/pages/TWebApp/ReportProduct";
+import {TUserActivityPage} from "@components/pages/TWebApp/UsersActivity";
+import {TAdminPage} from "@components/pages/TWebApp/Admin";
+import {TTermOfUsePage} from "@components/pages/TWebApp/TermOfUse";
 
 const router = createBrowserRouter([
     {
@@ -55,7 +60,29 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <LoginPage />
-    }
+    },
+    {
+        path: '/webapp',
+        element: <MainLayoutWebApp />,
+        children: [
+            {
+                path: "report",
+                element: <TReportProductPage />,
+            },
+            {
+                path: "activity",
+                element: <TUserActivityPage />,
+            },
+            {
+                path: "admin",
+                element: <TAdminPage />,
+            },
+            {
+                path: "terms",
+                element: <TTermOfUsePage />,
+            },
+        ]
+    },
 ]);
 
 export const RoutesMain: React.FC = () => {

@@ -9,7 +9,9 @@ export const MainMenuNavigation = observer(() => {
     const {classes} = NavigationStyles();
 
     const navigate = useNavigate();
-    const {mainMenuStore} = useStores();
+    const {mainMenuStore, userStore} = useStores();
+
+    const admins = userStore.getUserData().role == "manager" || userStore.getUserData().role == "admin"
 
     return (
         <Navbar p="xs" className={classes.menu}>
@@ -17,7 +19,7 @@ export const MainMenuNavigation = observer(() => {
                 <Title order={4} fw={400} fs="italic">Меню сервиса</Title>
             </Navbar.Section>
             <Navbar.Section>
-                {mainMenuStore.getLinksMenu().slice(0, 4).map((item, index) => (
+                {mainMenuStore.getLinksMenu().slice(0, admins ? 4 : 3).map((item, index) => (
                     <NavLink
                         className={classes.navLink}
                         key={item.label}
