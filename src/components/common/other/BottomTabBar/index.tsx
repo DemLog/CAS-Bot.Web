@@ -10,11 +10,13 @@ import {useNavigate} from "react-router-dom";
 export const BottomTabBar: React.FC = observer(() => {
     const { classes } = BottomTabBarStyles();
 
-    const { mainMenuStore } = useStores();
+    const { mainMenuStore, userStore } = useStores();
     const navigate = useNavigate();
 
+    const admins = userStore.getUserData().role == "manager" || userStore.getUserData().role == "admin"
+
     const displayTabs = () => {
-        const defaultTabs = mainMenuStore.getLinksMenu().slice(0, 4).map((item, index) => (
+        const defaultTabs = mainMenuStore.getLinksMenu().slice(0, admins ? 4 : 3).map((item, index) => (
             <Fragment key={index}>
                 <Tabs.Tab
                     className={classes.tab}

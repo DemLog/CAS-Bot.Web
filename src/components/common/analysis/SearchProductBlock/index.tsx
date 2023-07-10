@@ -8,6 +8,8 @@ import {faSliders} from "@fortawesome/free-solid-svg-icons";
 import {CustomModal} from "@components/common/other/CustomModal";
 import {SearchProductBlockProps} from "@components/common/analysis/SearchProductBlock/props";
 import {ProductsFakeData} from "@core/stores/fakeData/products";
+import apiService from "@core/services/apiService";
+import {IProduct} from "@core/models/product/IProduct";
 
 export const SearchProductBlock: React.FC<SearchProductBlockProps> = (props: SearchProductBlockProps) => {
     const {classes} = SearchProductBlockStyles();
@@ -17,13 +19,17 @@ export const SearchProductBlock: React.FC<SearchProductBlockProps> = (props: Sea
 
     const [openedModal, {open, close}] = useDisclosure(false);
 
-    const handleSearchButton = () => {
-        console.log(searchInput);
-        // Действие с запросом
+    const handleSearchButton = async () => {
+        const products = await apiService({
+            method: "POST", url: "analysis/search", body: {
+                text: searchInput,
+                is_category: false
+            }
+        }) as IProduct[];
 
         props.setDataProducts(prevState => ({
             isActive: true,
-            products: ProductsFakeData
+            products: products
         }));
     };
 
@@ -31,12 +37,12 @@ export const SearchProductBlock: React.FC<SearchProductBlockProps> = (props: Sea
         <CustomModal
             buttons={[<Button onClick={close} color="gray">Закрыть</Button>]}
             modal={{
-            title: "Расширенные настройки",
-            withCloseButton: false,
-            opened: openedModal,
-            onClose: close,
-            shadow: 'xl'
-        }}>
+                title: "Расширенные настройки",
+                withCloseButton: false,
+                opened: openedModal,
+                onClose: close,
+                shadow: 'xl'
+            }}>
             <Box w={300}>
                 <Stack>
                     <Checkbox
@@ -61,7 +67,8 @@ export const SearchProductBlock: React.FC<SearchProductBlockProps> = (props: Sea
                             label="Искать категорию"
                         />
                     </Group>
-                </Box> : <Box mt={5} className={classes.settingBlockMobile}><Button onClick={open} color="gray" p="xs"><FontAwesomeIcon
+                </Box> : <Box mt={5} className={classes.settingBlockMobile}><Button onClick={open} color="gray"
+                                                                                    p="xs"><FontAwesomeIcon
                     icon={faSliders}/></Button></Box>}
             </Box>
         </Fragment>

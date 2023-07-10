@@ -21,7 +21,7 @@ export const DetailProductInfo: React.FC<DetailProductInfoProps> = (props: Detai
     };
 
     const displayCategories = () => (
-        <Text fw={100} ml={matches ? 0 : "xs"} className={`${matches ? '' : classes.headerItemCategories}`}>{`${props.category} > ${props.category} > ${props.category}`}</Text>
+        <Text fw={100} ml={matches ? 0 : "xs"} className={`${matches ? '' : classes.headerItemCategories}`}>{props.categories.map(value => value + ' < ')}</Text>
     );
 
     return (

@@ -5,6 +5,7 @@ import {DetailProductAdvanced, DetailProductInfo} from "@components/common/analy
 import {useSearchParams} from "react-router-dom";
 import {IProduct} from "@core/models/product/IProduct";
 import {ProductsFakeData} from "@core/stores/fakeData/products";
+import apiService from "@core/services/apiService";
 
 export const DetailProductPage = () => {
     const matches = useMediaQuery('(min-width: 625px)');
@@ -12,11 +13,17 @@ export const DetailProductPage = () => {
     const [paramsPage] = useSearchParams();
     const [productValue, setProductValue] = useState<IProduct>();
 
-    useEffect(() => {
-        const idProductFromParams = paramsPage.get("id");
-        const productSearch = ProductsFakeData.find(value => value.id === idProductFromParams)
+    useEffect( () => {
+        const getProduct = async () => {
+            const idProductFromParams = paramsPage.get("id");
+            const productSearch = await apiService({
+                method: "GET",
+                url: `analysis/product?product_id=${idProductFromParams}`
+            }) as IProduct;
 
-        setProductValue(prevState => productSearch);
+            setProductValue(prevState => productSearch);
+        }
+        getProduct();
     }, []);
 
     return (
@@ -24,7 +31,7 @@ export const DetailProductPage = () => {
             {productValue ?
                 <Fragment>
                     <DetailProductInfo {...productValue} />
-                    <DetailProductAdvanced/>
+                    {/*<DetailProductAdvanced/>*/}
                 </Fragment> :
                 <Text>Пусто</Text>
             }

@@ -5,6 +5,7 @@ import {ReportProductInfo, ReportProductList} from "@components/common/analysis/
 import {useSearchParams} from "react-router-dom";
 import {IProduct} from "@core/models/product/IProduct";
 import {ProductsFakeData} from "@core/stores/fakeData/products";
+import apiService from "@core/services/apiService";
 
 export const ReportProductPage = () => {
     const matches = useMediaQuery('(min-width: 780px)');
@@ -13,10 +14,15 @@ export const ReportProductPage = () => {
     const [productValue, setProductValue] = useState<IProduct>();
 
     useEffect(() => {
-        const idProductFromParams = paramsPage.get("id");
-        const productSearch = ProductsFakeData.find(value => value.id === idProductFromParams)
+        const getProduct = async () => {
+            const idProductFromParams = paramsPage.get("id");
+            const productSearch = await apiService({
+                method: "GET",
+                url: `analysis/product?product_id=${idProductFromParams}`
+            }) as IProduct;
 
-        setProductValue(prevState => productSearch);
+            setProductValue(prevState => productSearch);
+        }
     }, []);
 
     return (

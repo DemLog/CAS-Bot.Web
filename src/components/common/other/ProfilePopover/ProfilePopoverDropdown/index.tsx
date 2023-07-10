@@ -9,7 +9,7 @@ import {ProfilePopoverDropdownProps} from "@components/common/other/ProfilePopov
 export const ProfilePopoverDropdown: React.FC<ProfilePopoverDropdownProps> = observer((props: ProfilePopoverDropdownProps) => {
     const {classes} = ProfilePopoverDropdownStyles();
 
-    const {mainMenuStore} = useStores();
+    const {mainMenuStore, userStore} = useStores();
     const navigate = useNavigate();
 
     return (
@@ -22,7 +22,7 @@ export const ProfilePopoverDropdown: React.FC<ProfilePopoverDropdownProps> = obs
             <NavLink className={`${classes.navLinkButton} ${classes.navLinkButtonDisable}`} py={5}
                      label={
                          <Text fz="lg" fw={500} ta="center">Баланс:
-                             <Text className={classes.balanceText} fw={700} span color="white" inherit>123456
+                             <Text className={classes.balanceText} fw={700} span color="white" inherit>{userStore.user?.tokens}
                                  Токенов</Text>
                          </Text>
                      }
